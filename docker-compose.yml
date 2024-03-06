@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  server:
+    build: ./backend
+    restart: always
+    ports:
+      - "8080:8080"
+
+  client_web:
+    build: ./frontend
+    restart: always
+    depends_on:
+      - server
+    ports:
+      - "8081:8081"
